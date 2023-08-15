@@ -1,0 +1,51 @@
+---
+import { Debug } from "astro/components";
+import Hero from "../components/Hero.astro";
+import Post from "../components/Post.astro";
+import Layout from "../layouts/Layout.astro";
+const response = await fetch(
+  `https://wp.camerondurington.com/wp-json/wp/v2/posts?per_page=5`
+);
+const data = await response.json();
+---
+
+<script></script>
+
+<Layout title="Home">
+  <Hero />
+  <section>
+    {
+      data.map((post: any) => (
+        <Post
+          title={post.title.rendered}
+          date={post.date}
+          excerpt={post.excerpt.rendered}
+          slug={post.slug}
+        />
+      ))
+    }
+    <a href="/posts/">More posts</a>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: -75px;
+    z-index: 100;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px;
+    border: 3px solid var(--color-red);
+    color: white;
+  }
+</style>

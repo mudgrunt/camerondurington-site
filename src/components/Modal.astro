@@ -1,0 +1,73 @@
+---
+const { src, alt, width, height } = Astro.props;
+import { Image } from "@unpic/astro";
+---
+
+<script>
+  document.querySelectorAll(".modal").forEach((modal: any) => {
+    modal.addEventListener("click", () => {
+      if (modal.classList.contains("modal-active")) {
+        modal.classList.remove("modal-active");
+      } else {
+        modal.classList.add("modal-active");
+      }
+    });
+  });
+</script>
+
+<div class="modal">
+  <Image draggable="false" src={src} alt={alt} width={width} height={height} />
+</div>
+
+<style>
+  .modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(100, 100, 100, 0.5);
+    background-image: url("/cross.webp");
+    background-blend-mode: multiply;
+    position: relative;
+    margin-bottom: 16px;
+    border: 1px solid rgba(100, 100, 100, 1);
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2.5px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  img:hover {
+    scale: 1.1;
+    z-index: 25;
+  }
+
+  .modal-active {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 150;
+    padding: 16px;
+    margin: 0px;
+    background-image: none;
+  }
+
+  .modal-active img {
+    max-height: 100%;
+    width: auto;
+    border: none;
+    border-radius: 0px;
+    transition-duration: 1ms;
+  }
+
+  .modal-active img:hover {
+    scale: 1;
+    z-index: 0;
+  }
+</style>

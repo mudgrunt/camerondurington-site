@@ -1,0 +1,22 @@
+{
+  "name": "camerondurington",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.17.1",
+    "@astrojs/node": "^5.3.3",
+    "@fontsource/cabin": "^4.5.10",
+    "@fontsource/prompt": "^4.5.10",
+    "@fontsource/reem-kufi-fun": "^4.5.1",
+    "@fontsource/rock-salt": "^4.5.8",
+    "@unpic/astro": "^0.0.21",
+    "astro": "^2.7.0"
+  }
+}

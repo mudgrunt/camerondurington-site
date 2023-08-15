@@ -1,0 +1,51 @@
+---
+const { title, date, excerpt, slug } = Astro.props;
+---
+
+<a href=`/posts/${slug}`>
+  <h2>{title}</h2>
+  <span>
+    {
+      new Date(date).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    }
+  </span>
+  <p set:html={excerpt} />
+</a>
+
+<style>
+  a {
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 3px solid var(--color-red);
+    color: white;
+    background-color: var(--color-black);
+    transition: all 1s;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: white;
+    color: var(--color-black);
+  }
+
+  h2 {
+    font-weight: 900;
+    float: left;
+  }
+
+  span {
+    float: right;
+  }
+
+  p {
+    font-weight: 400;
+    margin-bottom: 50px;
+  }
+</style>
