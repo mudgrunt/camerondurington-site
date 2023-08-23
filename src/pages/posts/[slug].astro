@@ -9,11 +9,29 @@ const data = await response.json();
 ---
 
 <Layout title={data[0].title.rendered}>
-  <span set:html={data[0].content.rendered} />
+  <div class="post-wrapper">
+    <h1>{data[0].title.rendered}</h1>
+    <p>
+      {
+        new Date(data[0].date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        })
+      }
+    </p>
+    <span set:html={data[0].content.rendered} />
+  </div>
 </Layout>
 
 <style>
-  span {
+  .post-wrapper {
     color: white;
+    max-width: 900px;
+    padding: 24px;
+  }
+
+  p {
+    margin-bottom: 24px;
   }
 </style>
