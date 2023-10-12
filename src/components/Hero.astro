@@ -13,7 +13,7 @@ const introData = await introResponse.json();
 ---
 
 <section>
-  <div set:html={introData[0].content.rendered} />
+  <!-- <div set:html={introData[0].content.rendered} /> -->
   <video src={videoData[0].source_url} autoplay muted loop></video>
 </section>
 
