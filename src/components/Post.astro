@@ -4,7 +4,7 @@ const { title, date, excerpt, slug } = Astro.props;
 
 <a href=`/posts/${slug}`>
   <h2>{title}</h2>
-  <span>
+  <!-- <span>
     {
       new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
@@ -12,7 +12,7 @@ const { title, date, excerpt, slug } = Astro.props;
         day: "numeric",
       })
     }
-  </span>
+  </span> -->
   <p set:html={excerpt} />
 </a>
 
@@ -20,6 +20,7 @@ const { title, date, excerpt, slug } = Astro.props;
   a {
     display: block;
     width: 100%;
+    min-width: 250px;
     max-width: 850px;
     margin-bottom: 16px;
     padding: 16px;
