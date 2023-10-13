@@ -11,15 +11,6 @@ const data = await response.json();
 <Layout title={data[0].title.rendered}>
   <div class="post-wrapper">
     <h1>{data[0].title.rendered}</h1>
-    <p>
-      {
-        new Date(data[0].date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })
-      }
-    </p>
     <span set:html={data[0].content.rendered} />
   </div>
 </Layout>
@@ -32,7 +23,7 @@ const data = await response.json();
     padding: 48px 24px;
   }
 
-  p {
+  h1 {
     margin-bottom: 24px;
   }
 </style>
