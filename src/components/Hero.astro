@@ -2,7 +2,7 @@
 import { Debug } from "astro/components";
 
 const videoResponse = await fetch(
-  `https://wp.camerondurington.com/wp-json/wp/v2/media?include=43`
+  `https://wp.camerondurington.com/wp-json/wp/v2/media?media_type=mp4`
 );
 const videoData = await videoResponse.json();
 
